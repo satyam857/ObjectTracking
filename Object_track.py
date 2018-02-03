@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import imutils
 
 camera_port = 0
 camera = cv2.VideoCapture(camera_port)
@@ -11,6 +12,8 @@ while(True):
     if(not status):
         print("Check Your Camera")
         break
+    
+    frame = imutils.resize(frame, width=650)
     
     # Convert BGR to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
